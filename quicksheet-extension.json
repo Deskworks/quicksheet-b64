@@ -1,0 +1,8 @@
+{
+  "name": "quicksheet-b64",
+  "version": "1.0.0",
+  "prefix": "b64",
+  "description": "Base64 encode/decode in a cell — paste encoded strings to decode, or encode text for APIs and configs",
+  "entry": "dotnet run --project QuickSheetB64.csproj",
+  "minProtocolVersion": 1
+}
