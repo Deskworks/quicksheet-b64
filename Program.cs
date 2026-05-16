@@ -34,22 +34,8 @@ class Program
                         if (arr.MoveNext()) param = arr.Current.GetString() ?? "";
                     }
 
-                    int baseRow = 0, baseCol = 0;
-                    if (root.TryGetProperty("anchor", out var anchor))
-                    {
-                        string a = anchor.GetString() ?? "";
-                        int ci = 0;
-                        while (ci < a.Length && char.IsLetter(a[ci])) ci++;
-                        if (ci > 0 && ci < a.Length)
-                        {
-                            string colPart = a[..ci].ToUpperInvariant();
-                            baseCol = 0;
-                            foreach (char ch in colPart) baseCol = baseCol * 26 + (ch - 'A');
-                            if (int.TryParse(a[ci..], out int rowNum)) baseRow = rowNum - 1;
-                        }
-                    }
-
-                    var cells = Process(param.Trim(), baseRow, baseCol);
+                    // Use 0-based relative coordinates — host adds anchor offset
+                    var cells = Process(param.Trim(), 0, 0);
                     var response = new { type = "write", id, cells };
                     Console.WriteLine(JsonSerializer.Serialize(response));
                     Console.Out.Flush();
