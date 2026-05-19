@@ -7,7 +7,7 @@ Base64 encode/decode on your [QuickSheet](https://github.com/cemheren/QuickSheet
 Type into any QuickSheet cell:
 
 ```
-ext: github:cemheren/quicksheet-b64
+ext: github:Deskworks/quicksheet-b64
 ```
 
 ## Usage
